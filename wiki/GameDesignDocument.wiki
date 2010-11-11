@@ -41,6 +41,11 @@
   * Chute
   * Especial
 
+=== Condição de Vitória ===
+
+  * O jogador esgotar a vida do adversário
+  * O jogador obteve mais pontos que o adversário ao final do tempo de luta
+
 ----
 
 = Personagens =
