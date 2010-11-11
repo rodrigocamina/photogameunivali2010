@@ -5,6 +5,7 @@
 == Nomenclatura das Imagens ==
 
 {{{
+    Nome_Menu_número
     Nome_Parado_número
     Nome_Hit_número
     Nome_Especial_número
