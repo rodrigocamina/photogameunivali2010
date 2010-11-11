@@ -4,7 +4,7 @@
 
 == Nomenclatura das Imagens ==
 
-  * Nome*_Parado_número
+  * Nome*_Parado*_número
   * Nome_Hit_número
   * Nome_Especial_número
   * Nome_Soco_Alto_número
