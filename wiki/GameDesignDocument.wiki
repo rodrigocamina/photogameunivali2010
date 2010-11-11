@@ -4,6 +4,8 @@
 
 = Visão Geral =
 
+
+
 ----
 
 = Gameplay =
@@ -50,14 +52,16 @@
 
 === Pontuação ===
 
-  * Soco
-  * Chute
-  * Especial
+  * Soco ?
+  * Chute ?
+  * Especial ?
 
 === Condição de Vitória ===
 
-  * O jogador esgotar a vida do adversário
-  * O jogador obteve mais pontos que o adversário ao final do tempo de luta
+  * O jogador derrotar o adversário em dois dos três rounds do jogo:
+    * Esgotando a vida do adversário
+    * Ao final do tempo de jogo tenha mais vida do que seu adversário
+  
 
 ----
 
