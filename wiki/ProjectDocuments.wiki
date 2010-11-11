@@ -1,4 +1,4 @@
 #summary Documentação do Projeto.
 
-  [GameOverviewDocument Documento de Visão Geral do Jogo]
-  [GameDesignDocument Documento de Design do Jogo]
+  * [GameOverviewDocument Documento de Visão Geral do Jogo]
+  * [GameDesignDocument Documento de Design do Jogo]
