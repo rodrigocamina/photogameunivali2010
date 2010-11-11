@@ -58,6 +58,7 @@
     * dar chutes no alto e em baixo
     * defender-se no alto e em baixo
     * utilizar um golpe especial
+  * O golpe especial necessita ser carregado para ser utilizado
 
 == Condição de Vitória ==
 
