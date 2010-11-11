@@ -19,3 +19,15 @@ tela menuInterface --> seleçao de personagens
 -->seleciona personagens
 
 tela da luta --> 3 ronds
+
+
+personagens 
+
+->andar
+->soco alto
+->soco baixo
+->chute alto
+->chute baixo
+->defesa alto
+->defesa baixo
+->especial
