@@ -4,13 +4,14 @@
 
 == Nomenclatura das Imagens ==
 
-  {{{Nome_
-    * Parado_número
-    * Hit_número
-    * Especial_número
-    * Soco_Alto_número
-    * Soco_Baixo_número
-    * Chute_Alto_número
-    * Chute_Baixo_número
-    * Defesa_Alto_número
-    * Defesa_Baixo_número}}}
+{{{
+    Nome_Parado_número
+    Nome_Hit_número
+    Nome_Especial_número
+    Nome_Soco_Alto_número
+    Nome_Soco_Baixo_número
+    Nome_Chute_Alto_número
+    Nome_Chute_Baixo_número
+    Nome_Defesa_Alto_número
+    Nome_Defesa_Baixo_número
+}}}
