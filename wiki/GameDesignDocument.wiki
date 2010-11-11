@@ -26,7 +26,16 @@
   * Ir para a Esquerda: Tecla "C"
   * Ir para a Direita: Tecla "B"
 
-== Interface ==
+== Interfaces ==
+
+  O jogo possui possui 6 telas:
+
+  * Splash Screen - Tela de apresentação do jogo
+  * Menu Inicial - Tela com menu possibilitando a seleção das opções: Ajuda, Sobre o Jogo e Iniciar
+  * Ajuda - Tela com informações sobre como jogar
+  * Sobre o Jogo - Tela com informações sobre os desenvolvedores
+  * Seleção de Personagem - Tela que permite aos jogadores selecionar seu personagem
+  * Tela de Luta - Tela onde o jogo propriamente dito irá ocorrer
 
 == Regras ==
 
