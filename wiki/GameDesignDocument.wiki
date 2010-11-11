@@ -61,9 +61,9 @@
 
 = Personagens =
 
-  * Personagem 1 (Big Boss)
-  * Personagem 2 (Mallock)
-  * Personagem 3 (Blondie)
-  * Personagem 4 (Madimbu)
+  * Big Boss (Dennis)
+  * Mallock ()
+  * Blondie (Menina)
+  * Madimbu ()
 
 ----
