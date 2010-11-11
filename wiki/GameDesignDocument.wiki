@@ -4,7 +4,8 @@
 
 = Visão Geral =
 
-
+  Jogo de luta no estilo Mortal Kombat utilzando fotos na criação e animação dos personagens. 
+  
 
 ----
 
