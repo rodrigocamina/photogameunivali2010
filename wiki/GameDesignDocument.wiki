@@ -17,6 +17,7 @@
   * Soco: Tecla "X"
   * Chute: Tecla "X"
   * Defesa: Tecla "X"
+  * Especial: Tecla "X"
   * Ir para a Esquerda: Tecla "<-"
   * Ir para a Direita: Tecla "->"
 
@@ -25,6 +26,7 @@
   * Soco: Tecla "Y"
   * Chute: Tecla "Y"
   * Defesa: Tecla "Y"
+  * Especial: Tecla "Y"
   * Ir para a Esquerda: Tecla "C"
   * Ir para a Direita: Tecla "B"
 
