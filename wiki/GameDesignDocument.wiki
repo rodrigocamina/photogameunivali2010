@@ -37,10 +37,9 @@
 
 === Menu Principal ===
 
-  * Seleção de opções:
-    * Ir para cima: "seta para cima"
-    * Ir para baixo: "seta para baixo"
-    * Seleção: "enter"
+  * Ir para cima: "seta para cima"
+  * Ir para baixo: "seta para baixo"
+  * Seleção: "enter"
 
 ----
 
