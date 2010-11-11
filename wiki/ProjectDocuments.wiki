@@ -1,4 +1,5 @@
 #summary Documentação do Projeto.
 
+  * [ProjectPatterns Padrões do Projeto]
   * [GameOverviewDocument Documento de Visão Geral do Jogo]
   * [GameDesignDocument Documento de Design do Jogo]
