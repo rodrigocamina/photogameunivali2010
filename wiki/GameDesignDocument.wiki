@@ -15,7 +15,7 @@
 
 == Controles ==
 
-=== Jogador 1 ===
+==== Jogador 1 ====
 
   * Soco: Tecla "1"
   * Chute: Tecla "2"
@@ -25,7 +25,7 @@
   * Ir para a Esquerda: Tecla "seta para esquerda"
   * Ir para a Direita: Tecla "seta para direita"
 
-=== Jogador 2 ===
+==== Jogador 2 ====
 
   * Soco: Tecla "B"
   * Chute: Tecla "N"
@@ -35,7 +35,7 @@
   * Ir para a Esquerda: Tecla "A"
   * Ir para a Direita: Tecla "D"
 
-=== Menu Principal ===
+==== Menu Principal ====
 
   * Ir para cima: "seta para cima"
   * Ir para baixo: "seta para baixo"
