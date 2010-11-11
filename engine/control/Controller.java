@@ -8,6 +8,8 @@ import java.awt.event.MouseMotionListener;
 
 import engine.sound.SoundController;
 
+import view.SplashScreen;
+
 //================== Classe Controller ===================
 //
 // Implementa o modulo de controle do jogo
@@ -62,7 +64,7 @@ public class Controller implements Runnable {
 		instance = this;
 		this.gamePanel = gamePanel;
 		//TODO
-//		this.actualScreen = new SplashScreen();
+		this.actualScreen = new SplashScreen();
 		loadImage();
 		//============= Eventos de Mouse =================
 		//
