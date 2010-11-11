@@ -1,0 +1,25 @@
+#summary Documento de Design do Jogo.
+<wiki:toc max_depth="4" />
+----
+
+= Visão Geral =
+
+----
+
+= Gameplay =
+
+== Controles ==
+
+== Interface ==
+
+== Regras ==
+
+==  ==
+
+----
+
+= Personagens =
+
+----
+
+= Cenários =
