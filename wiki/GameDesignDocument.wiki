@@ -76,7 +76,10 @@
 
   * Big Boss (Dennis)
   * Mallock ()
-  * Blondie (Menina)
+  * Blondie (Fotografa)
   * Madimbu ()
+  * Charac1 ()
+  * Charac2 ()
+  * Random ()
 
 ----
