@@ -4,7 +4,7 @@
 
 == Nomenclatura das Imagens ==
 
-  * Nome_
+  {{{Nome_
     * Parado_número
     * Hit_número
     * Especial_número
@@ -13,4 +13,4 @@
     * Chute_Alto_número
     * Chute_Baixo_número
     * Defesa_Alto_número
-    * Defesa_Baixo_número
+    * Defesa_Baixo_número}}}
