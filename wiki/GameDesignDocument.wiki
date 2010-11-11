@@ -40,7 +40,11 @@
 == Regras ==
 
   * O jogador poderá andar pelo cenário em duas direções: Esquerda e Direita
-  * O jogador poderá dar socos e chutes e também defender-se
+  * O jogador poderá:
+    * dar socos no alto e em baixo
+    * dar chutes no alto e em baixo
+    * defender-se no alto e em baixo
+    * utilizar um golpe especial
 
 == Pontuação e Condição de Vitória ==
 
