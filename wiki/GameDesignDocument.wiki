@@ -67,7 +67,3 @@
   * Personagem 4 (Madimbu)
 
 ----
-
-= Cenários =
-
-  * Cenário 1
