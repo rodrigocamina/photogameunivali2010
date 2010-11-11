@@ -15,3 +15,7 @@
     Nome_Defesa_Alto_número
     Nome_Defesa_Baixo_número
 }}}
+
+  Onde:
+  * Nome é o nome do personagem;
+  * Número é o número da imagem na sequência da animação;
