@@ -69,11 +69,10 @@
 = Personagens =
 
   * Big Boss (Dennis)
-  * Mallock ()
-  * Blondie (Fotografa)
-  * Madimbu ()
-  * Charac1 ()
-  * Charac2 ()
-  * Random ()
+  * Mallock (?)
+  * Monitora (Greice)
+  * Madimbu (?)
+  * Raiska (Raissa)
+  * Tchê (Thalys)
 
 ----
