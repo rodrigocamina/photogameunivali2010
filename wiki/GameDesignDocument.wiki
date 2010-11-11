@@ -14,21 +14,30 @@
 
 === Jogador 1 ===
 
-  * Soco: Tecla "X"
-  * Chute: Tecla "X"
-  * Defesa: Tecla "X"
-  * Especial: Tecla "X"
-  * Ir para a Esquerda: Tecla "<-"
-  * Ir para a Direita: Tecla "->"
+  * Soco: Tecla "1"
+  * Chute: Tecla "2"
+  * Defesa: Tecla "3"
+  * Especial: Tecla "0"
+  * Ir para Baixo: "seta para cima"
+  * Ir para a Esquerda: Tecla "seta para esquerda"
+  * Ir para a Direita: Tecla "seta para direita"
 
 === Jogador 2 ===
 
-  * Soco: Tecla "Y"
-  * Chute: Tecla "Y"
-  * Defesa: Tecla "Y"
-  * Especial: Tecla "Y"
-  * Ir para a Esquerda: Tecla "C"
-  * Ir para a Direita: Tecla "B"
+  * Soco: Tecla "B"
+  * Chute: Tecla "N"
+  * Defesa: Tecla "M"
+  * Especial: Tecla "Space"
+  * Ir para Baixo: Tecla "S"
+  * Ir para a Esquerda: Tecla "A"
+  * Ir para a Direita: Tecla "D"
+
+=== Menu Principal ===
+
+  * Seleção de opções:
+    * Ir para cima: "seta para cima"
+    * Ir para baixo: "seta para baixo"
+    * Seleção: "enter"
 
 == Interfaces ==
 
