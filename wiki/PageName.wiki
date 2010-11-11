@@ -1,0 +1,21 @@
+#summary One-sentence summary of this page.
+
+= PhotoGame =
+
+
+jogo de luta.
+2 players.
+
+
+
+
+
+splash ---> nome da equipe e entradas de menu.
+-->Help
+-->sobre
+-->iniciar
+
+tela menuInterface --> seleçao de personagens
+-->seleciona personagens
+
+tela da luta --> 3 ronds
