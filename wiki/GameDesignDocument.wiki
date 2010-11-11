@@ -41,8 +41,6 @@
   * Ir para baixo: "seta para baixo"
   * Seleção: "enter"
 
-----
-
 == Interfaces ==
 
   O jogo possui possui 6 telas:
@@ -54,8 +52,6 @@
   * Seleção de Personagem - Tela que permite aos jogadores selecionar seu personagem
   * Tela de Luta - Tela onde o jogo propriamente dito irá ocorrer
 
-----
-
 == Regras ==
 
   * O jogador poderá andar pelo cenário em duas direções: Esquerda e Direita
@@ -65,8 +61,6 @@
     * defender-se no alto e em baixo
     * utilizar um golpe especial
   * O golpe especial necessita ser carregado para ser utilizado
-
-----
 
 == Condição de Vitória ==
 
