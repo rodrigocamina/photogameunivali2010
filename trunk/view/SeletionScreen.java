@@ -37,7 +37,7 @@ public class SeletionScreen extends Screen{
 	private int sizeHeightImageSelecionado;// tamanho  X 146
 	private int sizeWidhtImageSelecionado;//tamanho  Y 181
 	private Point[] posicao;
-	private String []enderecoImage = new String[8];
+	private String []enderecoImage;
 	private Random rand = new Random();
 	private boolean player1Selecionado = false;
 	private boolean player2Selecionado = false;
@@ -94,12 +94,12 @@ public class SeletionScreen extends Screen{
 			/*
 			 * Carregar todas as imagem dos jogadores
 			 */
-			//================================Carrega  a imagem de Fundo ====================================================			
+//================================Carrega  a imagem de Fundo ====================================================			
 
 			fundo = ImageIO.read(Controller.getInstance().getClass().getResourceAsStream(enderecoImage[7]));
 
-			//===============================================================================================================
-			//=============================Carrega as imagens dos lutadores =================================================
+//===============================================================================================================
+//=============================Carrega as imagens dos lutadores =================================================
 			for(int i=0;i<7; i++)
 			{
 				lutadores.add(new Button(Utilities.loadImage(enderecoImage[i]),posicao[i].x,posicao[i].y){
@@ -152,13 +152,13 @@ public class SeletionScreen extends Screen{
 					}
 				}.init(i));
 			}
-			//==========================================================================================================================================================		
+//==========================================================================================================================================================		
 
-			//===============================Adiciona os lutadores para ser mostrado na tela===========================================================================================================================			
+//===============================Adiciona os lutadores para ser mostrado na tela===========================================================================================================================			
 			for (int i = 0; i < lutadores.size(); i++) {
 				addComponent(lutadores.get(i));
 			}
-			//==============================================================================================================================================================================			
+//==============================================================================================================================================================================			
 
 
 //================================== Imagem do lutador selecionado do player 1 ==========================================================================================================			
@@ -234,13 +234,13 @@ public class SeletionScreen extends Screen{
 				}
 
 			});
-			//==============================================================================================================================================================================================================================================
+//==============================================================================================================================================================================================================================================
 
-			//===============================Adiciona os lutadores Selecionado para ser mostrado na tela===========================================================================================================================			
+//===============================Adiciona os lutadores Selecionado para ser mostrado na tela===========================================================================================================================			
 			for (int i = 0; i < lutadoresSelcionado.size(); i++) {
 				addComponent(lutadoresSelcionado.get(i));
 			}
-			//======================================================================================================================================================================================================================================			
+//======================================================================================================================================================================================================================================			
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -255,7 +255,7 @@ public class SeletionScreen extends Screen{
 		// TODO Auto-generated method stub
 		if(player1Selecionado && player2Selecionado){
 			System.out.println("passa para proxima tela ");
-//			Controller.getInstance().goToScreen(BatleScreen);
+			Controller.getInstance().goToScreen(new LoadScreen(player1, player2, enderecoImage[player1], enderecoImage[player2]));
 		}
 
 
@@ -267,16 +267,7 @@ public class SeletionScreen extends Screen{
 
 	}
 
-	//	@Override
-	//	public void moved(MouseEvent e) {
-	//		// TODO Auto-generated method stub
-	//		for (int i = 0; i < lutadores.size(); i++) {
-	//			if(Utilities.insideOf(lutadores.get(i), new Position(e.getPoint()))){
-	//
-	//			}
-	//		}
-	//
-	//	}
+	
 	@Override
 	public void pressed(MouseEvent e) {
 		for (int i = 0; i < lutadores.size(); i++) {
@@ -289,67 +280,67 @@ public class SeletionScreen extends Screen{
 		/*
 		 * tramento do teclado do player 1
 		 */
-		if(e.getKeyCode()== KeyEvent.VK_E)
-		{
-			int aux = 0;
-			if(player1==5){
-				do{
-					aux = rand.nextInt(7);								
-				}while(aux==5);
-				player1 = aux;
+		if(!player1Selecionado){
+			if(e.getKeyCode()== KeyEvent.VK_E)
+			{
+				int aux = 0;
+				if(player1==5){
+					do{
+						aux = rand.nextInt(7);								
+					}while(aux==5);
+					player1 = aux;
+				}
+	
+				player1Selecionado = true;
+				System.out.println(" E presionado");
 			}
-
-			player1Selecionado = true;
-			System.out.println(" E presionado");
-		}
-
-		if(e.getKeyCode()== KeyEvent.VK_D)
-		{
-			player1++;			
-			if(player1>6)
-				player1=0;
-			System.out.println(" D presionado");
-		}
-		if(e.getKeyCode()== KeyEvent.VK_A)
-		{
-			player1--;			
-			if(player1<0)
-				player1=6;
-			System.out.println(" A presionado");
-		}
-		/*
-		 * tramento do teclado do player 2
-		 */
-		if(e.getKeyCode()== KeyEvent.VK_ENTER)
-		{
-			int aux = 0;
-			if(player2==5){
-				do{
-					aux = rand.nextInt(7);								
-				}while(aux==5);				
-				player2 = aux;
+	
+			if(e.getKeyCode()== KeyEvent.VK_D)
+			{
+				player1++;			
+				if(player1>6)
+					player1=0;
+				System.out.println(" D presionado");
 			}
-			player2Selecionado = true;
+			if(e.getKeyCode()== KeyEvent.VK_A)
+			{
+				player1--;			
+				if(player1<0)
+					player1=6;
+				System.out.println(" A presionado");
+			}
 		}
-		if(e.getKeyCode()== KeyEvent.VK_LEFT)
-		{
-			player2++;			
-			if(player2>6)
-				player2=0;
-			System.out.println(" D presionado");
-		}
-		if(e.getKeyCode()== KeyEvent.VK_RIGHT)
-		{
-			player2--;			
-			if(player2<0)
-				player2=6;
-			System.out.println(" A presionado");
+		
+		if(!player2Selecionado){
+			if(e.getKeyCode()== KeyEvent.VK_ENTER)
+			{
+				int aux = 0;
+				if(player2==5){
+					do{
+						aux = rand.nextInt(7);								
+					}while(aux==5);				
+					player2 = aux;
+				}
+				player2Selecionado = true;
+			}
+			if(e.getKeyCode()== KeyEvent.VK_LEFT)
+			{
+				player2++;			
+				if(player2>6)
+					player2=0;
+				System.out.println(" D presionado");
+			}
+			if(e.getKeyCode()== KeyEvent.VK_RIGHT)
+			{
+				player2--;			
+				if(player2<0)
+					player2=6;
+				System.out.println(" A presionado");
+			}
 		}
 
 	}
-	public void releasedKey(KeyEvent e){
-
-	}
+	
 
 
 }
