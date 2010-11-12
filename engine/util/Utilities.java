@@ -82,9 +82,17 @@ public class Utilities {
 	}
 
 	//checagem retangular
+	public static boolean touches(Drawable component, Drawable component2){
+		return insideOf(component, new Position(component2.position.getX(), component2.position.getY()) )||
+		insideOf(component, new Position(component2.position.getX()+component2.width, component2.position.getY()) )||
+		insideOf(component, new Position(component2.position.getX(), component2.position.getY()+component2.height) )||
+		insideOf(component, new Position(component2.position.getX()+component2.width, component2.position.getY()+component2.height) );
+	}
+	
 	public static boolean insideOf(Drawable component, Position point){
 		return point.getX()>component.getPosition().getX()&&point.getX()<component.getPosition().getX()+component.getWidth()&&point.getY()>component.getPosition().getY()&&point.getY()<component.getPosition().getY()+component.getHeight();
 	}
+	
 	public static boolean insideOf(int areaX, int areaY,int areaWidth, int areaHeight, int X, int Y){
 		return X>areaX&&X<areaX+areaWidth&&Y>areaY&&Y<areaY+areaHeight;
 	}

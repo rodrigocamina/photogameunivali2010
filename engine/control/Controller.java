@@ -5,9 +5,17 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.List;
+
+import beans.Personagem;
+import beans.SpriteSystem;
 
 import engine.sound.SoundController;
+import engine.util.Utilities;
 
+import view.BattleScreen;
 import view.SeletionScreen;
 
 //================== Classe Controller ===================
@@ -37,13 +45,71 @@ public class Controller implements Runnable {
 	public long diffTime, lastTime;
 	public long diffTime2, lastTime2;
 	private int speed = 10;
+	List<Personagem> personagens = new ArrayList<Personagem>();
+	List<BufferedImage> stages = new ArrayList<BufferedImage>();
 
+	public Personagem getPersonagens(int i) {
+		return personagens.get(i);
+	}
 
+	public BufferedImage getStages(int i) {
+		return stages.get(i);
+	}
+	
 	private void loadImage()
 	{
 		try 
 		{
-
+			stages.add(Utilities.loadImage(""));
+			stages.add(Utilities.loadImage(""));
+			stages.add(Utilities.loadImage(""));
+			stages.add(Utilities.loadImage(""));
+			stages.add(Utilities.loadImage(""));
+			stages.add(Utilities.loadImage(""));
+			stages.add(Utilities.loadImage(""));
+			stages.add(Utilities.loadImage(""));
+			
+			SpriteSystem sprite = new SpriteSystem();
+			sprite.init(0, 5, SpriteSystem.STANDING);
+			//TODO
+			//fazer o init de cada modo para cada personagem
+			personagens.add(new Personagem(sprite));
+			
+			sprite = new SpriteSystem();
+			sprite.init(0, 5, SpriteSystem.STANDING);
+			//TODO
+			//fazer o init de cada modo para cada personagem
+			personagens.add(new Personagem(sprite));
+			
+			sprite = new SpriteSystem();
+			sprite.init(0, 5, SpriteSystem.STANDING);
+			//TODO
+			//fazer o init de cada modo para cada personagem
+			personagens.add(new Personagem(sprite));
+			
+			sprite = new SpriteSystem();
+			sprite.init(0, 5, SpriteSystem.STANDING);
+			//TODO
+			//fazer o init de cada modo para cada personagem
+			personagens.add(new Personagem(sprite));
+			
+			sprite = new SpriteSystem();
+			sprite.init(0, 5, SpriteSystem.STANDING);
+			//TODO
+			//fazer o init de cada modo para cada personagem
+			personagens.add(new Personagem(sprite));
+			
+			sprite = new SpriteSystem();
+			sprite.init(0, 5, SpriteSystem.STANDING);
+			//TODO
+			//fazer o init de cada modo para cada personagem
+			personagens.add(new Personagem(sprite));
+			
+			sprite = new SpriteSystem();
+			sprite.init(0, 5, SpriteSystem.STANDING);
+			//TODO
+			//fazer o init de cada modo para cada personagem
+			personagens.add(new Personagem(sprite));
 		} 
 		catch (Exception e) 
 		{
@@ -167,7 +233,7 @@ public class Controller implements Runnable {
 		diffTime2 = 0;
 		lastTime2 = System.currentTimeMillis();
 
-		//divide o processamento em 2 threads, objetivo: teste de performance (qual È melhor?)
+		//divide o processamento em 2 threads, objetivo: teste de performance (qual ÅEmelhor?)
 		new Thread(){
 			public void run() {
 				while (running) {					
