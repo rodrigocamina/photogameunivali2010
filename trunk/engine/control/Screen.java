@@ -138,6 +138,7 @@ public abstract class Screen extends Drawable{
 		}else{
 			pressedKey(e);
 		}
+
 	}
 	public void pressedKey(KeyEvent e){
 		
