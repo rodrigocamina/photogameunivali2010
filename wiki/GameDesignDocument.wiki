@@ -37,6 +37,18 @@
   * Ir para baixo: "seta para baixo"
   * Seleção: "enter"
 
+==== Seleção de Personagem ====
+
+  *Jogador 1*
+
+  * Rotacionar entre os personagens: Tecla "seta para esquerda" e Tecla "seta para direita"
+  * Selecionar o escolhido: Tecla "Enter"
+
+  *Jogador 2*
+
+  * Rotacionar entre os personagens: Tecla "A" e Tecla "D"
+  * Selecionar o escolhido: Tecla "E"
+
 == Interfaces ==
 
   O jogo possui 6 telas:
