@@ -39,7 +39,7 @@
 
 == Interfaces ==
 
-  O jogo possui possui 6 telas:
+  O jogo possui 6 telas:
 
   * Splash Screen - Tela de apresentação do jogo
   * Menu Inicial - Tela com menu possibilitando a seleção das opções: Ajuda, Sobre o Jogo e Iniciar
