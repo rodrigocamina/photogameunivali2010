@@ -2,7 +2,7 @@ package view;
 /*
  * Autor Bruno da Silva 
  * 
- * Data: 11/11/2010
+ * Data: 12/11/2010
  */
 
 import java.awt.Color;
