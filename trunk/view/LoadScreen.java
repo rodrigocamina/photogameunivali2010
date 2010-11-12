@@ -1,4 +1,9 @@
 package view;
+/*
+ * Autor Bruno da Silva 
+ * 
+ * Data: 12/11/2010
+ */
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -94,8 +99,13 @@ public class LoadScreen extends Screen{
 	@Override
 	public void simulate(long diffTime) {
 		// TODO Auto-generated method stub
-		tempoLoading-= Controller.getInstance().diffTime;
+		tempoLoading-= Controller.getInstance().diffTime/1000.0f;
+		/*
+		 * quando o tempo acabar passa para a tela da luta
+		 */
 		if(tempoLoading<0){
+			System.out.println("proxima tela eh a da luta");
+			
 //			Controller.getInstance().goToScreen(BatleScreen);
 		}
 
