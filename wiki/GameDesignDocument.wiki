@@ -17,7 +17,7 @@
   * Chute: Tecla "2"
   * Defesa: Tecla "3"
   * Especial: Tecla "0"
-  * Ir para Baixo: "seta para cima"
+  * Ir para Baixo: "seta para baixo"
   * Ir para a Esquerda: Tecla "seta para esquerda"
   * Ir para a Direita: Tecla "seta para direita"
 
