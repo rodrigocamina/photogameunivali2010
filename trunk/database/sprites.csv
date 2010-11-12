@@ -1,0 +1,18 @@
+#id;bodyX1;bodyY1;bodyX2;bodyY2;atkX1;atkY1;atkX2;atkY2;imagePath
+0;0;0;0;0;0;0;0;0;C:\Users\gilberto\Desktop\pasta univali\PhotoGame\image\bigboss\bigBoss_agachado0.png
+1;0;0;0;0;0;0;0;0;C:\Users\gilberto\Desktop\pasta univali\PhotoGame\image\bigboss\bigBoss_agachado1.png
+2;148;31;35;168;124;122;28;64;C:\Users\gilberto\Desktop\pasta univali\PhotoGame\image\bigboss\bigBoss_chute_alto_0.png
+3;145;37;49;164;79;91;70;66;C:\Users\gilberto\Desktop\pasta univali\PhotoGame\image\bigboss\bigBoss_chute_alto_1.png
+4;114;34;70;162;0;0;0;0;C:\Users\gilberto\Desktop\pasta univali\PhotoGame\image\bigboss\bigBoss_defesa_alto_0.png
+5;137;34;55;163;169;89;0;0;C:\Users\gilberto\Desktop\pasta univali\PhotoGame\image\bigboss\bigBoss_defesa_baixa_0.png
+6;112;65;80;131;0;0;0;0;C:\Users\gilberto\Desktop\pasta univali\PhotoGame\image\bigboss\bigBoss_especial_0.png
+7;100;55;91;144;93;105;35;29;C:\Users\gilberto\Desktop\pasta univali\PhotoGame\image\bigboss\bigBoss_especial_1.png
+8;112;36;73;159;84;65;35;42;C:\Users\gilberto\Desktop\pasta univali\PhotoGame\image\bigboss\bigBoss_especial_2.png
+9;125;26;55;166;92;1;48;51;C:\Users\gilberto\Desktop\pasta univali\PhotoGame\image\bigboss\bigBoss_especial_3.png
+10;131;38;48;156;0;0;0;0;C:\Users\gilberto\Desktop\pasta univali\PhotoGame\image\bigboss\bigBoss_hit.png
+11;132;34;53;166;0;0;0;0;C:\Users\gilberto\Desktop\pasta univali\PhotoGame\image\bigboss\bigBoss_Parado_0.png
+12;133;32;50;164;0;0;0;0;C:\Users\gilberto\Desktop\pasta univali\PhotoGame\image\bigboss\bigBoss_Parado_1.png
+13;132;34;50;162;0;0;0;0;C:\Users\gilberto\Desktop\pasta univali\PhotoGame\image\bigboss\bigBoss_Parado_1.png
+14;126;33;53;164;0;0;0;0;C:\Users\gilberto\Desktop\pasta univali\PhotoGame\image\bigboss\bigBoss_soco_alto_0.png
+15;128;32;50;163;96;51;45;34;C:\Users\gilberto\Desktop\pasta univali\PhotoGame\image\bigboss\bigBoss_soco_alto_1.png
+16;131;32;54;167;88;52;54;26;C:\Users\gilberto\Desktop\pasta univali\PhotoGame\image\bigboss\bigBoss_soco_alto_3.png
