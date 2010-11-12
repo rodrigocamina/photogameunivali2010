@@ -11,6 +11,7 @@ import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 
@@ -31,6 +32,7 @@ public class LoadScreen extends Screen{
 	private Point[] posicao;
 	private String []enderecoImage;
 	private double tempoLoading;
+	private Random rand = new Random();
 
 
 	public LoadScreen(int player1, int player2, String enderecoImagePlayer1, String enderecoImagePlayer2) {
@@ -107,7 +109,7 @@ public class LoadScreen extends Screen{
 		if(tempoLoading<0){
 			System.out.println("proxima tela eh a da luta");
 			
-//			Controller.getInstance().goToScreen(BatleScreen);
+			Controller.getInstance().goToScreen(new BattleScreen(indicePlayer1, indicePlayer2,rand.nextInt(4) ));
 		}
 
 	}
