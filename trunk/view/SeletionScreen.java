@@ -86,7 +86,7 @@ public class SeletionScreen extends Screen{
 		enderecoImage[4]= "/image/lutador4.png";
 		enderecoImage[5]= "/image/lutador5.png";
 		enderecoImage[6]= "/image/lutador6.png";
-		enderecoImage[7]=  "/image/fundo.png";//fundo
+		enderecoImage[7]=  "/image/Screens/screenSelect.png";//fundo
 
 		//		
 
@@ -106,51 +106,18 @@ public class SeletionScreen extends Screen{
 					int index;
 
 					public void onClick() {
-						/*
-						 * start game
-						 */
-						System.out.println("index "+index);
-						if(player1 ==-1){
-							int aux = 0;
-							if(index==5){
-								do{
-									aux = rand.nextInt(7);								
-								}while(aux==5);
-								player1 = aux;
-							}else{
-								player1 = index;
-							}
-
-							System.out.println("player 1 "+player1);
-						}else{
-							int aux= 0;
-							if(index==5){
-								do{
-									aux = rand.nextInt(7);
-								}while(aux==5);
-								player2 = aux;
-							}else{							
-								player2 = index;
-							}
-							System.out.println("player 2 "+player2);
-							
-						}
+						
 
 					}
 					@Override
 					public void draw(Graphics2D graphics) {
-						graphics.setColor(Color.RED);
-						graphics.fillRect( position.toPoint().x-2, position.toPoint().y-2, sizeWidhtImage+4, sizeHeightImage+4);
+//						graphics.setColor(Color.RED);
+//						graphics.fillRect( position.toPoint().x-2, position.toPoint().y-2, sizeWidhtImage+4, sizeHeightImage+4);
 						graphics.drawImage(getImage(), position.toPoint().x, position.toPoint().y, position.toPoint().x+sizeWidhtImage, position.toPoint().y+sizeHeightImage, 0,0,getImage().getWidth(), getImage().getHeight(), null);
 
 					}
-					public Button init(int popooo){
-						this.index = popooo;
-						this.width = sizeWidhtImage;
-						this.height= sizeHeightImage;
-						return this;
-					}
-				}.init(i));
+					
+				});
 			}
 //==========================================================================================================================================================		
 
@@ -189,8 +156,8 @@ public class SeletionScreen extends Screen{
 //============================Selecao do personagem atraves do teclado com as teclas A, D e E para confirmar selecao =================================================================================================================================================================================================================					
 
 						this.setImage(lutadores.get(player1).getImage());
-						graphics.setColor(Color.RED);
-						graphics.fillRect( position.toPoint().x-2, position.toPoint().y-2, sizeWidhtImageSelecionado+4, sizeHeightImageSelecionado+4);
+//						graphics.setColor(Color.RED);
+//						graphics.fillRect( position.toPoint().x-2, position.toPoint().y-2, sizeWidhtImageSelecionado+4, sizeHeightImageSelecionado+4);
 						graphics.drawImage(getImage(), position.toPoint().x, position.toPoint().y, position.toPoint().x+sizeWidhtImageSelecionado, position.toPoint().y+sizeHeightImageSelecionado, 0,0,getImage().getWidth(), getImage().getHeight(), null);
 					
 
@@ -227,8 +194,8 @@ public class SeletionScreen extends Screen{
 //===========================================================================================================================================
 //================================Selecao do personagem feita atraves do teclado teclas LEFT  , RIGHT e Confirmar selacao com ENTER 
 						this.setImage(lutadores.get(player2).getImage());
-						graphics.setColor(Color.RED);
-						graphics.fillRect( position.toPoint().x-2, position.toPoint().y-2, sizeWidhtImageSelecionado+4, sizeHeightImageSelecionado+4);
+//						graphics.setColor(Color.RED);
+//						graphics.fillRect( position.toPoint().x-2, position.toPoint().y-2, sizeWidhtImageSelecionado+4, sizeHeightImageSelecionado+4);
 						graphics.drawImage(getImage(), position.toPoint().x, position.toPoint().y, position.toPoint().x+sizeWidhtImageSelecionado, position.toPoint().y+sizeHeightImageSelecionado, 0,0,getImage().getWidth(), getImage().getHeight(), null);
 					
 				}
@@ -292,22 +259,38 @@ public class SeletionScreen extends Screen{
 				}
 	
 				player1Selecionado = true;
-				System.out.println(" E presionado");
+//				System.out.println(" E presionado");
 			}
 	
 			if(e.getKeyCode()== KeyEvent.VK_D)
 			{
-				player1++;			
+				player1++;
+				if(player1== player2){
+					player1++;
+										
+				}
 				if(player1>6)
 					player1=0;
-				System.out.println(" D presionado");
+				if(player1== player2){
+					player1++;
+										
+				}
+//				System.out.println(" D presionado");
 			}
 			if(e.getKeyCode()== KeyEvent.VK_A)
 			{
-				player1--;			
+				player1--;					
+				if(player1 == player2){
+					player1--;				
+					
+				}
 				if(player1<0)
 					player1=6;
-				System.out.println(" A presionado");
+				if(player1 == player2){
+					player1--;				
+					
+				}
+//				System.out.println(" A presionado");
 			}
 		}
 		
@@ -325,17 +308,29 @@ public class SeletionScreen extends Screen{
 			}
 			if(e.getKeyCode()== KeyEvent.VK_LEFT)
 			{
-				player2++;			
+				player2++;
+				if(player2==player1){
+					player2++;
+				}
 				if(player2>6)
 					player2=0;
-				System.out.println(" D presionado");
+				if(player2==player1){
+					player2++;
+				}
+//				System.out.println(" D presionado");
 			}
 			if(e.getKeyCode()== KeyEvent.VK_RIGHT)
 			{
-				player2--;			
+				player2--;
+				if(player2==player1){
+					player2--;
+				}
 				if(player2<0)
 					player2=6;
-				System.out.println(" A presionado");
+				if(player2==player1){
+					player2--;
+				}
+//				System.out.println(" A presionado");
 			}
 		}
 
