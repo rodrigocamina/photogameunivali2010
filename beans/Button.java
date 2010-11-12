@@ -10,6 +10,8 @@ import engine.util.Position;
 public abstract class Button extends Drawable {
 	
 	BufferedImage image;
+	
+
 	int state = 0;
 	
 	public Button(BufferedImage buttonImageSet, Position position){
@@ -76,6 +78,9 @@ public abstract class Button extends Drawable {
 	
 	public BufferedImage getImage() {
 		return image;
+	}
+	public void setImage(BufferedImage image) {
+		this.image = image;
 	}
 	
 	@Override
