@@ -38,18 +38,19 @@ public class LoadScreen extends Screen{
 		height = 600;
 		width = 800;
 		
-		sizeHeightImage = 270;			
-		sizeWidhtImage = 350;
+				
+		sizeWidhtImage = 285;
+		sizeHeightImage = 265;	
 
 		posicao = new Point[2];
 		enderecoImage = new String[3];
 
-		posicao[0]= new Point(30, 30);
-		posicao[1]= new Point(430, 30);
+		posicao[0]= new Point(22, 85);
+		posicao[1]= new Point(495, 85);
 
 		enderecoImage[0] = enderecoImagePlayer1;
 		enderecoImage[1] = enderecoImagePlayer2;
-		enderecoImage[2] = "/image/teste.png ";//fundo
+		enderecoImage[2] = "/image/Screens/telaVs.png ";//fundo
 		
 		tempoLoading =4;
 
@@ -70,8 +71,8 @@ public class LoadScreen extends Screen{
 					}
 					@Override
 					public void draw(Graphics2D graphics) {
-						graphics.setColor(Color.RED);
-						graphics.fillRect( position.toPoint().x-2, position.toPoint().y-2, sizeWidhtImage+4, sizeHeightImage+4);
+//						graphics.setColor(Color.RED);
+//						graphics.fillRect( position.toPoint().x-2, position.toPoint().y-2, sizeWidhtImage+4, sizeHeightImage+4);
 						graphics.drawImage(getImage(), position.toPoint().x, position.toPoint().y, position.toPoint().x+sizeWidhtImage, position.toPoint().y+sizeHeightImage, 0,0,getImage().getWidth(), getImage().getHeight(), null);
 
 					}
