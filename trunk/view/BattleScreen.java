@@ -16,35 +16,50 @@ public class BattleScreen extends Screen{
 	public Personagem player2;
 	public BufferedImage stage;
 	boolean battling = true;
+	long timer = 2000;
 
 	public BattleScreen(int p1, int p2, int stage){
 		//TODO carregar stage
 		player1 = Controller.getInstance().getPersonagens(p1);
 		player2 = Controller.getInstance().getPersonagens(p2);
+		player1.setTurn(true);
+		this.stage = Controller.getInstance().getStages(stage);
 		addComponent(player1);
 		addComponent(player2);
+		player1.getPosition().setX(50);
+		player1.getPosition().setY(250);
+		player2.getPosition().setX(550);
+		player2.getPosition().setY(250);
+		
+		player1.checkPosition();
+		player2.checkPosition();
+		
 	}
 
 	@Override
 	public void simulate(long diffTime) {
 		if(battling){
-			if(player1.isHit())
+			if(!player1.isHit()){
 			if(Utilities.touches(player1.getCurrentSprite().getBody(), player2.getCurrentSprite().getAttack())){
 				player1.takeDamage(player2);
-				player1.action(SpriteSystem.DAMAGE);
 				if(!player1.isAlive()){
 					battling = false;
 				}
 			}
 			if(Utilities.touches(player2.getCurrentSprite().getBody(), player1.getCurrentSprite().getAttack())){
 				player2.takeDamage(player1);
-				player2.action(SpriteSystem.DAMAGE);
 				if(!player2.isAlive()){
 					battling = false;
 				}
 			}
+			}
 		}else{
 			//winner player who isAlive()! XD
+			timer -= diffTime;
+			if(timer<=0){
+				//vai pra tela de selecao ou de comeco
+//				Controller.getInstance().goToScreen(screen)
+			}
 		}
 	}
 
@@ -99,17 +114,18 @@ Ir para a Direita: Tecla "D"
 				player1.action(SpriteSystem.SPECIAL);
 			}else if(e.getKeyCode()==KeyEvent.VK_DOWN){
 				player1.setDown(true);
+				player1.action(SpriteSystem.DOWN);
 			}else if(e.getKeyCode()==KeyEvent.VK_RIGHT){
 				if(player1.isTurn()){
-					player1.action(SpriteSystem.BACKWALK);
-				}else{
 					player1.action(SpriteSystem.FRONTWALK);
+				}else{
+					player1.action(SpriteSystem.BACKWALK);
 				}
 			}else if(e.getKeyCode()==KeyEvent.VK_LEFT){
 				if(player1.isTurn()){
-					player1.action(SpriteSystem.FRONTWALK);
-				}else{
 					player1.action(SpriteSystem.BACKWALK);
+				}else{
+					player1.action(SpriteSystem.FRONTWALK);
 				}
 			}else if(e.getKeyCode()==KeyEvent.VK_B){
 				if(player2.isDown()){
@@ -133,6 +149,7 @@ Ir para a Direita: Tecla "D"
 				player2.action(SpriteSystem.SPECIAL);
 			}else if(e.getKeyCode()==KeyEvent.VK_S){
 				player2.setDown(true);
+				player2.action(SpriteSystem.DOWN);
 			}else if(e.getKeyCode()==KeyEvent.VK_D){
 				if(player2.isTurn()){
 					player2.action(SpriteSystem.BACKWALK);
@@ -146,6 +163,17 @@ Ir para a Direita: Tecla "D"
 					player2.action(SpriteSystem.BACKWALK);
 				}
 			} 
+		}
+	}
+	//
+	@Override
+	public void releasedKey(KeyEvent e) {
+		if(e.getKeyCode()==KeyEvent.VK_DOWN){
+			player1.setDown(false);
+			player1.action(SpriteSystem.STANDING);
+		}else if(e.getKeyCode()==KeyEvent.VK_S){
+			player2.setDown(false);
+			player2.action(SpriteSystem.STANDING);
 		}
 	}
 }
