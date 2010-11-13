@@ -151,7 +151,7 @@ public abstract class Screen extends Drawable{
 		}
 	}
 	public void releasedKey(KeyEvent e){
-		
+
 	}
 	void keyTyped(KeyEvent e) {
 		if(subScreen!=null){

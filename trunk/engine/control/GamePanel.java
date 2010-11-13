@@ -55,6 +55,7 @@ public class GamePanel extends Canvas
 	//TODO retirar esses drawString ao final do projeto, eles só servem como verificação de desempenho
 	void draw(Screen drawableObject){
 		drawableObject.drawAll(dbg);
+		dbg.setColor(Color.WHITE);
 		dbg.drawString("Draw difftime "+Controller.getInstance().diffTime2, 12, 35);
 		dbg.drawString("Simulate difftime "+Controller.getInstance().diffTime, 12, 75);
 	}
