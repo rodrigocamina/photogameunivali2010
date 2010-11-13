@@ -10,7 +10,7 @@ import java.awt.Point;
 public class Position {
 	private float x, y;
 	private Point point;
-	private Point relativePoint;
+	private Position relativePoint;
 	//============ Position ===============
 	//
 	// Construtor da classe
@@ -27,7 +27,7 @@ public class Position {
 		this.y = p.y+y;
 	}
 	
-	public Position(Point pontoRelativo,float x, float y) {
+	public Position(Position pontoRelativo,float x, float y) {
 		point = new Point((int)x,(int)y);
 		relativePoint = pontoRelativo;
 		this.x = x;
@@ -35,11 +35,12 @@ public class Position {
 	}
 	
 	public Point toPoint()
-	{		
+	{	
 		return point;
 	}
 	
 	public void addX(float x){
+		System.out.println(this.x+" add "+x);
 		this.x += x;
 		this.point.x += x;
 	}
@@ -53,7 +54,7 @@ public class Position {
 		if(relativePoint==null){
 			point.x = (int)x;			
 		}else{
-			point.x = (int)x+relativePoint.x;
+			point.x = (int)(x+relativePoint.getX());
 		}
 		this.x = x;
 	}
@@ -61,11 +62,11 @@ public class Position {
 		if(relativePoint==null){
 			point.y = (int)y;			
 		}else{
-			point.y = (int)y+relativePoint.y;
+			point.y = (int)(y+relativePoint.getY());
 		}
 		this.y = y;
 	}
-	public void setRelativePoint(Point relativePoint) {
+	public void setRelativePoint(Position relativePoint) {
 		this.relativePoint = relativePoint;
 	}
 	public float getX() {

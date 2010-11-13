@@ -9,14 +9,11 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
+import view.BattleScreen;
 import beans.Personagem;
 import beans.SpriteSystem;
-
 import engine.sound.SoundController;
 import engine.util.Utilities;
-
-import view.BattleScreen;
-import view.SeletionScreen;
 
 //================== Classe Controller ===================
 //
@@ -60,56 +57,50 @@ public class Controller implements Runnable {
 	{
 		try 
 		{
-			stages.add(Utilities.loadImage(""));
-			stages.add(Utilities.loadImage(""));
-			stages.add(Utilities.loadImage(""));
-			stages.add(Utilities.loadImage(""));
-			stages.add(Utilities.loadImage(""));
-			stages.add(Utilities.loadImage(""));
-			stages.add(Utilities.loadImage(""));
-			stages.add(Utilities.loadImage(""));
+			stages.add(Utilities.loadImage("/image/fundo.png"));
 			
 			SpriteSystem sprite = new SpriteSystem();
-			sprite.init(0, 5, SpriteSystem.STANDING);
+			sprite.init(0, 1, SpriteSystem.FRONTWALK);
+			sprite.init(2, 3, SpriteSystem.KICKUP);
+			sprite.init(4, 4, SpriteSystem.KICKDOWN);
+			sprite.init(4, 4, SpriteSystem.KICKDOWN);
+			sprite.init(5, 5, SpriteSystem.DEFENSEUP);
+			sprite.init(5, 5, SpriteSystem.DEFENSEUP);
+			sprite.init(6, 6, SpriteSystem.DEFENSEDOWN);
+			sprite.init(6, 6, SpriteSystem.DEFENSEDOWN);
+			sprite.init(7, 10, SpriteSystem.SPECIAL);
+			sprite.init(11, 11, SpriteSystem.DAMAGE);
+			sprite.init(11, 11, SpriteSystem.DAMAGE);
+			sprite.init(12, 13, SpriteSystem.STANDING);
+			sprite.init(14, 16, SpriteSystem.PUNCHUP);
+			sprite.init(17, 18, SpriteSystem.PUNCHDOWN);
+			sprite.init(17, 17, SpriteSystem.DOWN);
+			sprite.init(17, 17, SpriteSystem.DOWN);
 			//TODO
 			//fazer o init de cada modo para cada personagem
 			personagens.add(new Personagem(sprite));
 			
 			sprite = new SpriteSystem();
-			sprite.init(0, 5, SpriteSystem.STANDING);
+			sprite.init(0, 1, SpriteSystem.FRONTWALK);
+			sprite.init(2, 3, SpriteSystem.KICKUP);
+			sprite.init(4, 4, SpriteSystem.KICKDOWN);
+			sprite.init(4, 4, SpriteSystem.KICKDOWN);
+			sprite.init(5, 5, SpriteSystem.DEFENSEUP);
+			sprite.init(5, 5, SpriteSystem.DEFENSEUP);
+			sprite.init(6, 6, SpriteSystem.DEFENSEDOWN);
+			sprite.init(6, 6, SpriteSystem.DEFENSEDOWN);
+			sprite.init(7, 10, SpriteSystem.SPECIAL);
+			sprite.init(11, 11, SpriteSystem.DAMAGE);
+			sprite.init(11, 11, SpriteSystem.DAMAGE);
+			sprite.init(12, 13, SpriteSystem.STANDING);
+			sprite.init(14, 16, SpriteSystem.PUNCHUP);
+			sprite.init(17, 18, SpriteSystem.PUNCHDOWN);
+			sprite.init(17, 17, SpriteSystem.DOWN);
+			sprite.init(17, 17, SpriteSystem.DOWN);
 			//TODO
 			//fazer o init de cada modo para cada personagem
 			personagens.add(new Personagem(sprite));
 			
-			sprite = new SpriteSystem();
-			sprite.init(0, 5, SpriteSystem.STANDING);
-			//TODO
-			//fazer o init de cada modo para cada personagem
-			personagens.add(new Personagem(sprite));
-			
-			sprite = new SpriteSystem();
-			sprite.init(0, 5, SpriteSystem.STANDING);
-			//TODO
-			//fazer o init de cada modo para cada personagem
-			personagens.add(new Personagem(sprite));
-			
-			sprite = new SpriteSystem();
-			sprite.init(0, 5, SpriteSystem.STANDING);
-			//TODO
-			//fazer o init de cada modo para cada personagem
-			personagens.add(new Personagem(sprite));
-			
-			sprite = new SpriteSystem();
-			sprite.init(0, 5, SpriteSystem.STANDING);
-			//TODO
-			//fazer o init de cada modo para cada personagem
-			personagens.add(new Personagem(sprite));
-			
-			sprite = new SpriteSystem();
-			sprite.init(0, 5, SpriteSystem.STANDING);
-			//TODO
-			//fazer o init de cada modo para cada personagem
-			personagens.add(new Personagem(sprite));
 		} 
 		catch (Exception e) 
 		{
@@ -130,8 +121,8 @@ public class Controller implements Runnable {
 		instance = this;
 		this.gamePanel = gamePanel;
 		//TODO
-		this.actualScreen = new SeletionScreen();
 		loadImage();
+		this.actualScreen = new BattleScreen(0, 1, 0);
 		//============= Eventos de Mouse =================
 		//
 		// Direciona os eventos de mouse do GamePanel para
@@ -196,14 +187,14 @@ public class Controller implements Runnable {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				actualScreen.keyPressed(e);
-				if(e.getKeyCode()==KeyEvent.VK_RIGHT&&speed<30){
+				/*if(e.getKeyCode()==KeyEvent.VK_RIGHT&&speed<30){
 					speed+=2;
 				}else if(e.getKeyCode()==KeyEvent.VK_LEFT&&speed>0){
 					speed-=2;
 					if(speed<0){
 						speed=0;
 					}
-				}
+				}*/
 			}
 		});
 		
@@ -233,7 +224,7 @@ public class Controller implements Runnable {
 		diffTime2 = 0;
 		lastTime2 = System.currentTimeMillis();
 
-		//divide o processamento em 2 threads, objetivo: teste de performance (qual Emelhor?)
+		//divide o processamento em 2 threads, objetivo: teste de performance (qual eh  melhor?)
 		new Thread(){
 			public void run() {
 				while (running) {					
