@@ -54,7 +54,7 @@ public class SpriteSystem extends Drawable{
 	
 	public void init(int begin, int end, int mode){
 		
-		BufferedReader dados = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/database/sprites.csv"), Charset.forName("UTF-8")));
+		BufferedReader dados = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/database/sprites2.csv"), Charset.forName("UTF-8")));
 		//Formato:
 		//{level};{pathDeImagem}
 		String str;

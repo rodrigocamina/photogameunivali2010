@@ -9,11 +9,14 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
-import view.BattleScreen;
+import view.SplashScreen;
 import beans.Personagem;
 import beans.SpriteSystem;
 import engine.sound.SoundController;
 import engine.util.Utilities;
+
+
+
 
 //================== Classe Controller ===================
 //
@@ -121,8 +124,11 @@ public class Controller implements Runnable {
 		instance = this;
 		this.gamePanel = gamePanel;
 		//TODO
+
+		this.actualScreen = new SplashScreen();
+
 		loadImage();
-		this.actualScreen = new BattleScreen(0, 1, 0);
+		
 		//============= Eventos de Mouse =================
 		//
 		// Direciona os eventos de mouse do GamePanel para
@@ -224,7 +230,7 @@ public class Controller implements Runnable {
 		diffTime2 = 0;
 		lastTime2 = System.currentTimeMillis();
 
-		//divide o processamento em 2 threads, objetivo: teste de performance (qual eh  melhor?)
+
 		new Thread(){
 			public void run() {
 				while (running) {					

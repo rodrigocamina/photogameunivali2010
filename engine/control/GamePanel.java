@@ -3,6 +3,10 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
+import java.awt.SplashScreen;
+
+import view.ScreenStart;
+
 
 
 
@@ -21,7 +25,11 @@ public class GamePanel extends Canvas
 	private static final int PWIDTH = 800; // size of panel
 	private static final int PHEIGHT = 600;
 	private Graphics2D dbg;
+	
+	
 
+	
+	
 	//============= GamePanel ===============
 	//
 	// Construtor da classe
@@ -41,7 +49,9 @@ public class GamePanel extends Canvas
 		requestFocus(); // JPanel recebe key events
 		new Controller(this); // Adiciona um Key Listener
 		this.createBufferStrategy(2);
-
+		
+		
+		
 	}
 	
 	
@@ -54,12 +64,13 @@ public class GamePanel extends Canvas
 
 	//TODO retirar esses drawString ao final do projeto, eles só servem como verificação de desempenho
 	void draw(Screen drawableObject){
+		
 		drawableObject.drawAll(dbg);
-		dbg.setColor(Color.WHITE);
-		dbg.drawString("Draw difftime "+Controller.getInstance().diffTime2, 12, 35);
-		dbg.drawString("Simulate difftime "+Controller.getInstance().diffTime, 12, 75);
+
 	}
 
+	
+	
 	void passToWindow(){
 		this.getBufferStrategy().show();
 	}

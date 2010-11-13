@@ -117,6 +117,7 @@ public class Utilities {
 	
 	public static BufferedImage loadImage(String img) throws IOException{
 		try{
+			
 			BufferedImage imgTmp = ImageIO.read(Controller.getInstance().getClass().getResourceAsStream(img));
 			BufferedImage imgFinal = new BufferedImage(imgTmp.getWidth(), imgTmp.getHeight(), BufferedImage.TYPE_INT_ARGB);
 			imgFinal.createGraphics().drawImage(imgTmp,0,0,null);
