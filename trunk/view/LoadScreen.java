@@ -109,7 +109,9 @@ public class LoadScreen extends Screen{
 		if(tempoLoading<0){
 			System.out.println("proxima tela eh a da luta");
 			
-			Controller.getInstance().goToScreen(new BattleScreen(indicePlayer1, indicePlayer2,rand.nextInt(4) ));
+			Controller.getInstance().goToScreen(new BattleScreen(indicePlayer1, indicePlayer2,0 ));
+			
+			
 		}
 
 	}
