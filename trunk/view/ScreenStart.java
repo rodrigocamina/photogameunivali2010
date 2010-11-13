@@ -30,10 +30,11 @@ public class ScreenStart extends Screen {
 	BufferedImage fundo;
 	public static boolean volta=false;
 	public boolean toIndoProJogo=false;
-	SeletionScreen selection = new SeletionScreen();
+	SeletionScreen selection;
 public static	boolean abrindoTela=false;
 	public ScreenStart() {
 		try {
+			
 			fundo = Utilities.loadImage("/img/menuPrincipal4.PNG");
 			abertura=new Abertura(Utilities.loadImage("/img/ladoEsquerdo.jpg"), Utilities.loadImage("/img/ladoDireito.jpg"));
 		//abertura.Go();
