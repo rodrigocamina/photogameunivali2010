@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import engine.util.Drawable;
+import engine.util.Position;
 import engine.util.Utilities;
 
 public class SpriteSystem extends Drawable{
@@ -17,7 +18,7 @@ public class SpriteSystem extends Drawable{
 	public int currentMode = 0;
 	public int nextMode = 0;
 	public int currentSprite = 0;
-	public int spriteTime = 100;
+	public int spriteTime = 300;
 	public int timer = spriteTime;
 	public boolean turn;
 	public boolean down;
@@ -36,6 +37,11 @@ public class SpriteSystem extends Drawable{
 	public SpriteMap curSpr;
 	
 	public SpriteSystem() {
+		setPosition(new Position(0,0));
+		sprites.add(new ArrayList<SpriteMap>());
+		sprites.add(new ArrayList<SpriteMap>());
+		sprites.add(new ArrayList<SpriteMap>());
+		sprites.add(new ArrayList<SpriteMap>());
 		sprites.add(new ArrayList<SpriteMap>());
 		sprites.add(new ArrayList<SpriteMap>());
 		sprites.add(new ArrayList<SpriteMap>());
@@ -48,7 +54,7 @@ public class SpriteSystem extends Drawable{
 	
 	public void init(int begin, int end, int mode){
 		
-		BufferedReader dados = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/database/tutorial.csv"), Charset.forName("UTF-8")));
+		BufferedReader dados = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/database/sprites.csv"), Charset.forName("UTF-8")));
 		//Formato:
 		//{level};{pathDeImagem}
 		String str;
@@ -59,7 +65,7 @@ public class SpriteSystem extends Drawable{
 					String parametros[] = str.split(";");
 					if(Integer.parseInt(parametros[0])>=begin&&Integer.parseInt(parametros[0])<=end){
 						//TODO, ajustar detalhes do path da imagem
-						list.add(new SpriteMap(Utilities.loadImage(parametros[9]),Integer.parseInt(parametros[1]),Integer.parseInt(parametros[2]),Integer.parseInt(parametros[3]),Integer.parseInt(parametros[4]),Integer.parseInt(parametros[5]),Integer.parseInt(parametros[6]),Integer.parseInt(parametros[7]),Integer.parseInt(parametros[8]),getPosition().toPoint()));
+						list.add(new SpriteMap(Utilities.loadImage(parametros[9]),Integer.parseInt(parametros[1]),Integer.parseInt(parametros[2]),Integer.parseInt(parametros[3]),Integer.parseInt(parametros[4]),Integer.parseInt(parametros[5]),Integer.parseInt(parametros[6]),Integer.parseInt(parametros[7]),Integer.parseInt(parametros[8]),getPosition()));
 					}
 				}
 			}
@@ -67,6 +73,7 @@ public class SpriteSystem extends Drawable{
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
+		System.out.println(sprites);
 		if(mode==FRONTWALK){
 			List<SpriteMap> listB = sprites.get(BACKWALK);
 			for (int i = 1; i <= list.size(); i++) {
@@ -82,6 +89,7 @@ public class SpriteSystem extends Drawable{
 			timer+=spriteTime;
 			currentSprite++;
 			if(currentSprite>=sprites.get(currentMode).size()){
+				currentSprite = 0;
 				if(currentMode>1){
 					if(nextMode==0){
 						if(down){
@@ -89,14 +97,20 @@ public class SpriteSystem extends Drawable{
 						}else{
 							currentMode = STANDING;
 						}
+						spriteTime = 300/sprites.get(currentMode).size();
 					}else{
 						currentMode = nextMode;
 						nextMode = 0;
+						if(currentMode==DEFENSEDOWN||currentMode==DEFENSEUP){
+							spriteTime = 500;
+						}else{
+							spriteTime = 300/sprites.get(currentMode).size();
+						}
 					}
 				}
 			}
 			if(turn){
-				curSpr = new SpriteMap(sprites.get(currentMode).get(currentSprite),getPosition().toPoint());
+				curSpr = new SpriteMap(sprites.get(currentMode).get(currentSprite),getPosition());
 			}else{
 				curSpr = sprites.get(currentMode).get(currentSprite);
 			}
@@ -106,9 +120,9 @@ public class SpriteSystem extends Drawable{
 	@Override
 	public void draw(Graphics2D graphics) {
 		if(turn){
-			graphics.drawImage(curSpr.getImage(), position.toPoint().x+curSpr.getImage().getWidth(), position.toPoint().y,position.toPoint().x, position.toPoint().y+curSpr.getImage().getHeight(),0,0,curSpr.getImage().getWidth(),curSpr.getImage().getHeight(), null);
+			graphics.drawImage(curSpr.getImage(), (int)position.getX()+curSpr.getImage().getWidth(), (int)position.getY(),(int)position.getX(),(int)position.getY()+curSpr.getImage().getHeight(),0,0,curSpr.getImage().getWidth(),curSpr.getImage().getHeight(), null);
 		}else{
-			graphics.drawImage(curSpr.getImage(), position.toPoint().x, position.toPoint().y, null);
+			graphics.drawImage(curSpr.getImage(), (int)position.getX(), (int)position.getY(), null);
 		}
 		//TODO deletar codigos seguintes antes de release
 		curSpr.getBody().draw(graphics);
@@ -116,15 +130,25 @@ public class SpriteSystem extends Drawable{
 	}
 	
 	public SpriteMap getCurrentSprite(){
+		if(curSpr==null){
+			curSpr = sprites.get(currentMode).get(currentSprite);
+		}
 		return curSpr;
 	}
 	
 	public void setNextMode(int action){
 		if(currentMode<4||action==DAMAGE&&action>currentMode){
 			currentMode = action;
+			spriteTime = 300/sprites.get(currentMode).size();
 			return;
 		}else{
 			nextMode = action;
 		}
+	}
+	
+	@Override
+	public void setPosition(Position position) {
+		// TODO Auto-generated method stub
+		super.setPosition(position);
 	}
 }

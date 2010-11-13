@@ -2,7 +2,6 @@ package beans;
 
 
 import java.awt.Color;
-import java.awt.Point;
 import java.awt.image.BufferedImage;
 
 import engine.util.Drawable;
@@ -20,7 +19,7 @@ public class SpriteMap {
 	Rect attack;
 	BufferedImage image;
 
-	public SpriteMap(BufferedImage image, int bodyX, int bodyY, int bodyX2, int bodyY2,int attackX, int attackY, int attackX2, int attackY2, Point point){
+	public SpriteMap(BufferedImage image, int bodyX, int bodyY, int bodyX2, int bodyY2,int attackX, int attackY, int attackX2, int attackY2, Position point){
 		this.image = image;
 		body = new Rect(bodyX, bodyY, bodyX2, bodyY2);
 		attack = new Rect(attackX, attackY, attackX2, attackY2);
@@ -30,10 +29,10 @@ public class SpriteMap {
 		attack.color = new Color(0, 0, 255, 120);
 	}
 
-	public SpriteMap(SpriteMap sm, Point point) {
+	public SpriteMap(SpriteMap sm, Position point) {
 		image = sm.image;
-		body = new Rect(sm.image.getWidth()-sm.body.getPosition().getX()-sm.body.getWidth(), sm.body.getPosition().getY(), sm.image.getWidth()-sm.body.getPosition().getX(), sm.body.getHeight());
-		attack = new Rect(sm.image.getWidth()-sm.attack.getPosition().getX()-sm.attack.getWidth(), sm.attack.getPosition().getY(), sm.image.getWidth()-sm.attack.getPosition().getX(), sm.attack.getHeight());
+		body = new Rect(sm.image.getWidth()-sm.body.getPosition().toPoint().x-sm.body.getWidth(), sm.body.getPosition().toPoint().y, sm.body.getWidth(), sm.body.getHeight());
+		attack = new Rect(sm.image.getWidth()-sm.attack.getPosition().toPoint().x-sm.attack.getWidth(), sm.attack.getPosition().toPoint().y, sm.attack.getWidth(), sm.attack.getHeight());
 		body.getPosition().setRelativePoint(point);
 		attack.getPosition().setRelativePoint(point);
 		body.color = new Color(255, 255, 0, 120);
