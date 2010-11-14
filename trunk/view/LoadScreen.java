@@ -57,11 +57,11 @@ public class LoadScreen extends Screen{
 		tempoLoading =4;
 
 		try {
-			//================================Carrega  a imagem de Fundo ====================================================			
+//================================Carrega  a imagem de Fundo ====================================================			
 
 			fundo = ImageIO.read(Controller.getInstance().getClass().getResourceAsStream(enderecoImage[2]));
 
-			//===============================================================================================================
+//===============================================================================================================
 
 			for(int i=0; i<2; i++){
 
@@ -107,8 +107,9 @@ public class LoadScreen extends Screen{
 		 * quando o tempo acabar passa para a tela da luta
 		 */
 		if(tempoLoading<0){
-			System.out.println("proxima tela eh a da luta");
-			
+			/*
+			 * chama a tela de luta do jogo
+			 */			
 			Controller.getInstance().goToScreen(new BattleScreen(indicePlayer1, indicePlayer2,0 ));
 			
 			
