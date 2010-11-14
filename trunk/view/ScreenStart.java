@@ -92,7 +92,7 @@ public static	boolean abrindoTela=false;
 		if(toIndoProJogo){
 			if(!abertura.animando()){
 				
-				Controller.getInstance().goToScreen(selection);
+				Controller.getInstance().goToScreen(new SeletionScreen());
 			}
 		}
 		if(volta){
