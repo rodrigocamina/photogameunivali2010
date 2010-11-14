@@ -79,14 +79,14 @@ public class SeletionScreen extends Screen{
 		/*
 		 * endereco das imagens que vao ser caregadas para mostrar os lutadores
 		 */
-		enderecoImage[0]= "/image/bigboss/bigBoss_Menu.png";
-		enderecoImage[1]= "/image/monitora/monitora_menu.png";
-		enderecoImage[2]= "/image/lutador2.png";
-		enderecoImage[3]= "/image/lutador3.png";
-		enderecoImage[4]= "/image/lutador4.png";
-		enderecoImage[5]= "/image/lutador5.png";
-		enderecoImage[6]= "/image/lutador6.png";
-		enderecoImage[7]=  "/image/Screens/screenSelect.png";//fundo
+		enderecoImage[0]= "/image/fireHead/fireHead_menu.png";
+		enderecoImage[1]= "/image/boo/boo_menu.png";
+		enderecoImage[2]= "/image/bigboss/bigBoss_Menu.png";
+		enderecoImage[3]= "/image/monitora/monitora_menu.png";
+		enderecoImage[4]= "/image/tche/tche_menu.png";
+		enderecoImage[5]= "/image/random.png";
+		enderecoImage[6]= "/image/mallock/mallock_menu.png";
+		enderecoImage[7]= "/image/Screens/screenSelect.png";//fundo
 
 		//		
 
@@ -103,7 +103,7 @@ public class SeletionScreen extends Screen{
 			for(int i=0;i<7; i++)
 			{
 				lutadores.add(new Button(Utilities.loadImage(enderecoImage[i]),posicao[i].x,posicao[i].y){
-					int index;
+					
 
 					public void onClick() {
 						
@@ -118,6 +118,7 @@ public class SeletionScreen extends Screen{
 					}
 					
 				});
+			
 			}
 //==========================================================================================================================================================		
 
@@ -306,7 +307,7 @@ public class SeletionScreen extends Screen{
 				}
 				player2Selecionado = true;
 			}
-			if(e.getKeyCode()== KeyEvent.VK_LEFT)
+			if(e.getKeyCode()== KeyEvent.VK_RIGHT)
 			{
 				player2++;
 				if(player2==player1){
@@ -319,7 +320,7 @@ public class SeletionScreen extends Screen{
 				}
 //				System.out.println(" D presionado");
 			}
-			if(e.getKeyCode()== KeyEvent.VK_RIGHT)
+			if(e.getKeyCode()== KeyEvent.VK_LEFT)
 			{
 				player2--;
 				if(player2==player1){
