@@ -60,7 +60,12 @@ public class Controller implements Runnable {
 	{
 		try 
 		{
-			stages.add(Utilities.loadImage("/image/fundo.png"));
+			stages.add(Utilities.loadImage("/image/Cenario/DSC_0196.JPG"));
+			stages.add(Utilities.loadImage("/image/Cenario/DSC_0199.JPG"));
+			stages.add(Utilities.loadImage("/image/Cenario/DSC_0201.JPG"));
+			stages.add(Utilities.loadImage("/image/Cenario/DSC_0205.JPG"));
+			
+			
 			
 			SpriteSystem sprite = new SpriteSystem();
 			sprite.init(0, 1, SpriteSystem.FRONTWALK);

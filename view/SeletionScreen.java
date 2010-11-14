@@ -80,7 +80,7 @@ public class SeletionScreen extends Screen{
 		 * endereco das imagens que vao ser caregadas para mostrar os lutadores
 		 */
 		enderecoImage[0]= "/image/fireHead/fireHead_menu.png";
-		enderecoImage[1]= "/image/boo/boo_menu.png";
+		enderecoImage[1]= "/image/madimbu/madimbu_menu.png";
 		enderecoImage[2]= "/image/bigboss/bigBoss_Menu.png";
 		enderecoImage[3]= "/image/monitora/monitora_menu.png";
 		enderecoImage[4]= "/image/tche/tche_menu.png";
