@@ -37,6 +37,7 @@ int vel=20;
 	public void Simular(long diftime){
 		
 		timer+=diftime;
+		System.out.println( "time "+timer);
 		if(timer>vel ){
 			timer=0;
 			if(animacao){

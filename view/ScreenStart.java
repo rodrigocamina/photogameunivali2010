@@ -2,26 +2,22 @@ package view;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-
 import beans.Abertura;
 import beans.Botao;
-import beans.Button;
 import beans.Seta;
-
 import engine.control.Controller;
 import engine.control.Screen;
-import engine.util.Position;
 import engine.util.Utilities;
+
+
 
 public class ScreenStart extends Screen {
 
-	int bla = 0;
-	
+	int bla = 0;	
 
 	Botao botaoIniciar,botaoSobre,botaoAjuda;
 	public static Seta seta;
@@ -29,14 +25,16 @@ public class ScreenStart extends Screen {
 	public static Abertura abertura;
 	BufferedImage fundo;
 	public static boolean volta=false;
-	public boolean toIndoProJogo=false;
+	public boolean toIndoProJogo =false;
 	SeletionScreen selection;
-public static	boolean abrindoTela=false;
+	public static	boolean abrindoTela = false;
+
+
 	public ScreenStart() {
 		try {
 			
 			fundo = Utilities.loadImage("/img/menuPrincipal4.PNG");
-			abertura=new Abertura(Utilities.loadImage("/img/ladoEsquerdo.jpg"), Utilities.loadImage("/img/ladoDireito.jpg"));
+			abertura = new Abertura(Utilities.loadImage("/img/ladoEsquerdo.jpg"), Utilities.loadImage("/img/ladoDireito.jpg"));
 		//abertura.Go();
 			BufferedImage tmp = Utilities.loadImage("/img/btiniciar.png");
 			botaoIniciar = new Botao(800-tmp.getWidth()/2, 100+tmp.getHeight(), tmp);
@@ -118,7 +116,7 @@ public static	boolean abrindoTela=false;
 				case 0:
 					//Go to screen -> seleciona personagem
 					abertura.Go();
-					toIndoProJogo=true;
+					toIndoProJogo = true;
 					break;
 				case 1:
 					//Go to screen -> ajuda
@@ -145,9 +143,7 @@ public static	boolean abrindoTela=false;
 			telaAjuda.pressedKey(e);
 		}else{
 			int keyCode = e.getKeyCode();
-			if (keyCode == KeyEvent.VK_E) {
-				
-			} else if (keyCode == KeyEvent.VK_SPACE) {
+			if (keyCode == KeyEvent.VK_SPACE || keyCode == KeyEvent.VK_ENTER || keyCode == KeyEvent.VK_E) {
 				
 				if(!abertura.animando()){
 					abertura.Go();
@@ -288,7 +284,7 @@ class ScreenAjuda extends Screen {
 		super.pressedKey(e);
 		int keyCode = e.getKeyCode();
 		
-		if(keyCode == KeyEvent.VK_SPACE){
+		if(keyCode == KeyEvent.VK_SPACE||keyCode == KeyEvent.VK_ENTER ||keyCode == KeyEvent.VK_E){
 			ScreenStart.abertura.Go();
 			ScreenStart.abrindoTela=true;
 			ScreenStart.volta=true;
