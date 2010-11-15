@@ -54,16 +54,16 @@ public class SpriteSystem extends Drawable{
 	
 	public void init(int begin, int end, int mode){
 		
-		BufferedReader dados = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/database/sprites2.csv"), Charset.forName("UTF-8")));
+		BufferedReader dados = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/database/madimbu.csv"), Charset.forName("UTF-8")));
 		//Formato:
 		//{level};{pathDeImagem}
-		String str;
+		String str = " ";
 		List<SpriteMap> list = sprites.get(mode);
 		try {
 			while ((str = dados.readLine()) != null){
 				if(str.charAt(0)!='#'){
 					String parametros[] = str.split(";");
-					if(Integer.parseInt(parametros[0])>=begin&&Integer.parseInt(parametros[0])<=end){
+					if(Integer.parseInt(parametros[0])>=begin && Integer.parseInt(parametros[0])<= end){
 						//TODO, ajustar detalhes do path da imagem
 						list.add(new SpriteMap(Utilities.loadImage(parametros[9]),Integer.parseInt(parametros[1]),Integer.parseInt(parametros[2]),Integer.parseInt(parametros[3]),Integer.parseInt(parametros[4]),Integer.parseInt(parametros[5]),Integer.parseInt(parametros[6]),Integer.parseInt(parametros[7]),Integer.parseInt(parametros[8]),getPosition()));
 					}
@@ -73,7 +73,7 @@ public class SpriteSystem extends Drawable{
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		System.out.println(sprites);
+//		System.out.println(sprites);
 		if(mode==FRONTWALK){
 			List<SpriteMap> listB = sprites.get(BACKWALK);
 			for (int i = 1; i <= list.size(); i++) {
@@ -137,7 +137,7 @@ public class SpriteSystem extends Drawable{
 	}
 	
 	public void setNextMode(int action){
-		if(currentMode<4||action==DAMAGE&&action>currentMode){
+		if(currentMode<4 || action==DAMAGE && action>currentMode){
 			currentMode = action;
 			spriteTime = 300/sprites.get(currentMode).size();
 			return;

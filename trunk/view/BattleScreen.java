@@ -3,12 +3,13 @@ package view;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
-
 import beans.Personagem;
 import beans.SpriteSystem;
 import engine.control.Controller;
 import engine.control.Screen;
 import engine.util.Utilities;
+
+
 
 public class BattleScreen extends Screen{
 
@@ -19,6 +20,7 @@ public class BattleScreen extends Screen{
 	long timer = 2000;
 
 	public BattleScreen(int p1, int p2, int stage){
+//		System.out.println("stage para ser caregado "+stage);
 		//TODO carregar stage
 		player1 = Controller.getInstance().getPersonagens(p1);
 		player2 = Controller.getInstance().getPersonagens(p2);
@@ -27,9 +29,9 @@ public class BattleScreen extends Screen{
 		addComponent(player1);
 		addComponent(player2);
 		player1.getPosition().setX(50);
-		player1.getPosition().setY(250);
+		player1.getPosition().setY(350);
 		player2.getPosition().setX(550);
-		player2.getPosition().setY(250);
+		player2.getPosition().setY(350);
 		
 		player1.checkPosition();
 		player2.checkPosition();
@@ -64,7 +66,7 @@ public class BattleScreen extends Screen{
 	}
 
 	@Override
-	public void draw(Graphics2D graphics) {
+	public void draw(Graphics2D graphics) {		
 		graphics.drawImage(stage, 0,0, null);
 	}
 

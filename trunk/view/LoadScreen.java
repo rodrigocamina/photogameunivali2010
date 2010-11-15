@@ -54,7 +54,7 @@ public class LoadScreen extends Screen{
 		enderecoImage[1] = enderecoImagePlayer2;
 		enderecoImage[2] = "/image/Screens/telaVs.png ";//fundo
 		
-		tempoLoading =4;
+		tempoLoading = 4;
 
 		try {
 //================================Carrega  a imagem de Fundo ====================================================			
@@ -73,8 +73,8 @@ public class LoadScreen extends Screen{
 					}
 					@Override
 					public void draw(Graphics2D graphics) {
-//						graphics.setColor(Color.RED);
-//						graphics.fillRect( position.toPoint().x-2, position.toPoint().y-2, sizeWidhtImage+4, sizeHeightImage+4);
+						graphics.setColor(Color.BLACK);
+						graphics.fillRect( position.toPoint().x-2, position.toPoint().y-2, sizeWidhtImage+4, sizeHeightImage+4);
 						graphics.drawImage(getImage(), position.toPoint().x, position.toPoint().y, position.toPoint().x+sizeWidhtImage, position.toPoint().y+sizeHeightImage, 0,0,getImage().getWidth(), getImage().getHeight(), null);
 
 					}
@@ -110,8 +110,18 @@ public class LoadScreen extends Screen{
 			/*
 			 * chama a tela de luta do jogo
 			 */			
-			Controller.getInstance().goToScreen(new BattleScreen(indicePlayer1, indicePlayer2,0 ));
+			if(indicePlayer1 == 6){
+				indicePlayer1 = 5;
+			}else{
+				if(indicePlayer2 == 6){
+					indicePlayer2 = 5;
+				}
+			}
+			//===== Indece dos jogadores varia de 0 ate 5 com o total de 6 elementos ===============================
 			
+			Controller.getInstance().goToScreen(new BattleScreen(indicePlayer1, indicePlayer2,rand.nextInt(4) ));
+			
+			//====================================================================================================
 			
 		}
 
