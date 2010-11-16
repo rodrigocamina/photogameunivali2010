@@ -30,8 +30,7 @@ public class SeletionScreen extends Screen{
 	private List<Button> lutadoresSelcionado = new ArrayList<Button>();
 	private List<BufferedImage>animacaoDeSelecaoP1 = new ArrayList<BufferedImage>();
 	private List<BufferedImage>animacaoDeSelecaoP2 = new ArrayList<BufferedImage>();
-//	private BufferedImage []animacaoDeSelecaoP1 = new BufferedImage[6];
-//	private BufferedImage []animacaoDeSelecaoP2 = new BufferedImage[6];
+	
 	public int player1=0;
 	public int player2=3;
 	private int sizeHeightImage;// tamanho  X 114
@@ -45,6 +44,8 @@ public class SeletionScreen extends Screen{
 	private Random rand = new Random();
 	private boolean player1Selecionado = false;
 	private boolean player2Selecionado = false;
+	private boolean E = false;
+	private boolean ENTER = false;
 
 	/*
 	 * tenho que passar um int 
@@ -58,8 +59,8 @@ public class SeletionScreen extends Screen{
 		posicao = new Point[9];
 		enderecoImage = new String[8];
 		
-		enderecoImageSelecaoP1 = new String[7];
-		enderecoImageSelecaoP2 = new String[7];
+		enderecoImageSelecaoP1 = new String[8];
+		enderecoImageSelecaoP2 = new String[8];
 
 		sizeHeightImage = 147;			
 		sizeWidhtImage =114;
@@ -87,13 +88,13 @@ public class SeletionScreen extends Screen{
 		/*
 		 * endereco das imagens que vao ser caregadas para mostrar os lutadores
 		 */
-		enderecoImage[0]= "/image/fireHead/fireHead_menu.png";
-		enderecoImage[1]= "/image/madimbu/madimbu_menu.png";
-		enderecoImage[2]= "/image/bigboss/bigBoss_Menu.png";
-		enderecoImage[3]= "/image/monitora/monitora_menu.png";
-		enderecoImage[4]= "/image/tche/tche_menu.png";
+		enderecoImage[0]= "/image/fireHead/fireHead_menu_0.png";
+		enderecoImage[1]= "/image/madimbu/madimbu_menu_0.png";
+		enderecoImage[2]= "/image/bigboss/bigBoss_Menu_0.png";
+		enderecoImage[3]= "/image/monitora/monitora_menu_0.png";
+		enderecoImage[4]= "/image/tche/tche_menu_0.png";
 		enderecoImage[5]= "/image/random.png";
-		enderecoImage[6]= "/image/mallock/mallock_menu.png";
+		enderecoImage[6]= "/image/mallock/mallock_menu_0.png";
 		enderecoImage[7]= "/image/Screens/screenSelect.png";//fundo
 
 //========================Carrega o endereco de imagem  da animacao de selacao do Player 1 =================================
@@ -104,6 +105,7 @@ public class SeletionScreen extends Screen{
 		enderecoImageSelecaoP1[4] = "/image/fogo/fogo_4.png";
 		enderecoImageSelecaoP1[5] = "/image/fogo/fogo_5.png";
 		enderecoImageSelecaoP1[6] = "/image/fogo/fogo_6.png";
+		enderecoImageSelecaoP1[7] = "/image/grade.png";
 //======================================================================================================================
 
 //=================Carrega o endereco de imagem  da animacao de selacao do Player 2=========================================
@@ -114,14 +116,15 @@ public class SeletionScreen extends Screen{
 		enderecoImageSelecaoP2[4] = "/image/fogo/fogo_azul_4.png";
 		enderecoImageSelecaoP2[5] = "/image/fogo/fogo_azul_5.png";
 		enderecoImageSelecaoP2[6] = "/image/fogo/fogo_azul_6.png";
+		enderecoImageSelecaoP2[7] = "/image/grade.png";
 //====================================================================================================================
 		try {
-			for (int i = 0; i < 7; i++) {
+			for (int i = 0; i < 8; i++) {
 				BufferedImage ani = ImageIO.read(Controller.getInstance().getClass().getResourceAsStream(enderecoImageSelecaoP1[i]));
 //			
 				animacaoDeSelecaoP1.add(ani);
 			}
-			for (int i = 0; i < 7; i++) {
+			for (int i = 0; i < 8; i++) {
 				BufferedImage ani2 = ImageIO.read(Controller.getInstance().getClass().getResourceAsStream(enderecoImageSelecaoP2[i]));
 //				
 				animacaoDeSelecaoP2.add(ani2);
@@ -198,7 +201,10 @@ public class SeletionScreen extends Screen{
 						
 						this.setImage(lutadores.get(player1).getImage());
 						graphics.drawImage(getImage(), position.toPoint().x, position.toPoint().y, position.toPoint().x+sizeWidhtImageSelecionado, position.toPoint().y+sizeHeightImageSelecionado, 0,0,getImage().getWidth(), getImage().getHeight(), null);
-					
+						if(E){
+							graphics.drawImage(animacaoDeSelecaoP1.get(7),posicao[player1].x , posicao[player1].y, posicao[player1].x+sizeWidhtImage ,posicao[player1].y+sizeHeightImage, 0, 0, animacaoDeSelecaoP1.get(7).getWidth(),  animacaoDeSelecaoP1.get(7).getHeight(), null);
+
+						}
 
 				}
 
@@ -234,7 +240,10 @@ public class SeletionScreen extends Screen{
 //================================Selecao do personagem feita atraves do teclado teclas LEFT  , RIGHT e Confirmar selacao com ENTER 
 						this.setImage(lutadores.get(player2).getImage());
 						graphics.drawImage(getImage(), position.toPoint().x, position.toPoint().y, position.toPoint().x+sizeWidhtImageSelecionado, position.toPoint().y+sizeHeightImageSelecionado, 0,0,getImage().getWidth(), getImage().getHeight(), null);
-					
+						if(ENTER){
+							graphics.drawImage(animacaoDeSelecaoP2.get(7),posicao[player2].x , posicao[player2].y, posicao[player2].x+sizeWidhtImage ,posicao[player2].y+sizeHeightImage, 0, 0, animacaoDeSelecaoP2.get(7).getWidth(),  animacaoDeSelecaoP2.get(7).getHeight(), null);
+
+						}
 				}
 
 			});
@@ -266,22 +275,30 @@ public class SeletionScreen extends Screen{
 	}
 	float time = 0.2f;
 	float time1 = 0.3f;
+	float time2 = 0.5f;
 	int aux = 0;
 	int aux2 = 0;
+	int aux3 = 0;
 	@Override
 	public void draw(Graphics2D graphics) {
 		
 		
 		time -=Controller.getInstance().diffTime/1000.0f;
 		time1 -=Controller.getInstance().diffTime/1000.0f;
+		time2 -=Controller.getInstance().diffTime/1000.0f;
 		if(time<0){
 			time = 0.2f;	
 			 aux = rand.nextInt(6);			
 			
 		}
-		if(time<0){
+		if(time1<0){
 			time1 = 0.3f;			
 			 aux2 = rand.nextInt(6);
+			
+		}
+		if(time2<0){
+			time2 = 0.5f;			
+			 aux3 = rand.nextInt(6);
 			
 		}
 //=====================================desenha animacao no personagem selecionado pelo jogadores============================================================================================================================================================================
@@ -290,6 +307,9 @@ public class SeletionScreen extends Screen{
 		
 		graphics.drawImage(animacaoDeSelecaoP1.get(aux2), posicao[player1].x, posicao[player1].y, posicao[player1].x+sizeWidhtImage, posicao[player1].y+sizeHeightImage, 0,0,animacaoDeSelecaoP1.get(aux2).getWidth(), animacaoDeSelecaoP1.get(aux2).getHeight(), null);
 		graphics.drawImage(animacaoDeSelecaoP2.get(aux), posicao[player2].x, posicao[player2].y, posicao[player2].x+sizeWidhtImage, posicao[player2].y+sizeHeightImage, 0,0,animacaoDeSelecaoP2.get(aux).getWidth(), animacaoDeSelecaoP2.get(aux).getHeight(), null);
+		
+		graphics.drawImage(animacaoDeSelecaoP1.get(aux3), posicao[player1].x, posicao[player1].y, posicao[player1].x+sizeWidhtImage, posicao[player1].y+sizeHeightImage, 0,0,animacaoDeSelecaoP1.get(aux3).getWidth(), animacaoDeSelecaoP1.get(aux3).getHeight(), null);
+		graphics.drawImage(animacaoDeSelecaoP2.get(aux3), posicao[player2].x, posicao[player2].y, posicao[player2].x+sizeWidhtImage, posicao[player2].y+sizeHeightImage, 0,0,animacaoDeSelecaoP2.get(aux3).getWidth(), animacaoDeSelecaoP2.get(aux3).getHeight(), null);
 //==========================================================================================================================================================================================================================================================================		
 //===================================desenha animacao onde mostra o personagem selecionado pelo jogador ===================================================================================================================================================================
 		graphics.drawImage(animacaoDeSelecaoP1.get(aux), posicao[7].x, posicao[7].y, posicao[7].x+sizeWidhtImageSelecionado, posicao[7].y+sizeHeightImageSelecionado, 0,0,animacaoDeSelecaoP1.get(aux).getWidth(), animacaoDeSelecaoP1.get(aux).getHeight(), null);
@@ -297,6 +317,10 @@ public class SeletionScreen extends Screen{
 		
 		graphics.drawImage(animacaoDeSelecaoP1.get(aux2), posicao[7].x, posicao[7].y, posicao[7].x+sizeWidhtImageSelecionado, posicao[7].y+sizeHeightImageSelecionado, 0,0,animacaoDeSelecaoP1.get(aux2).getWidth(), animacaoDeSelecaoP1.get(aux2).getHeight(), null);
 		graphics.drawImage(animacaoDeSelecaoP2.get(aux), posicao[8].x, posicao[8].y, posicao[8].x+sizeWidhtImageSelecionado, posicao[8].y+sizeHeightImageSelecionado, 0,0,animacaoDeSelecaoP2.get(aux).getWidth(), animacaoDeSelecaoP2.get(aux).getHeight(), null);
+		
+		graphics.drawImage(animacaoDeSelecaoP1.get(aux3), posicao[7].x, posicao[7].y, posicao[7].x+sizeWidhtImageSelecionado, posicao[7].y+sizeHeightImageSelecionado, 0,0,animacaoDeSelecaoP1.get(aux3).getWidth(), animacaoDeSelecaoP1.get(aux3).getHeight(), null);
+		graphics.drawImage(animacaoDeSelecaoP2.get(aux3), posicao[8].x, posicao[8].y, posicao[8].x+sizeWidhtImageSelecionado, posicao[8].y+sizeHeightImageSelecionado, 0,0,animacaoDeSelecaoP2.get(aux3).getWidth(), animacaoDeSelecaoP2.get(aux3).getHeight(), null);
+
 	//==========================================================================================================================================================================================================================================================================		
 		
 		graphics.drawImage(fundo, 0, 0, (int)width,(int) height, 0, 0, (int)fundo.getWidth(),  (int)fundo.getHeight(), null);
@@ -319,6 +343,7 @@ public class SeletionScreen extends Screen{
 		if(!player1Selecionado){
 			if(e.getKeyCode()== KeyEvent.VK_E)
 			{
+				E = true;
 				int aux = 0;
 				if(player1==5){
 					do{
@@ -366,6 +391,7 @@ public class SeletionScreen extends Screen{
 		if(!player2Selecionado){
 			if(e.getKeyCode()== KeyEvent.VK_ENTER)
 			{
+				ENTER = true;
 				int aux = 0;
 				if(player2==5){
 					do{
